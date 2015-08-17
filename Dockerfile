@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER mintplo <mintplo@jellycoaster.com>
 
 # Set Envrionmental Variable
-ENV UPSOURCE_LATEST_VER 2.0.3554
+ENV UPSOURCE_BUILD_VER 2.0.3554
 
 
 # Install basic package
@@ -26,12 +26,20 @@ RUN apt-get install -y \
 
 
 # Install Upsource
-ADD http://download.jetbrains.com/upsource/upsource-$UPSOURCE_LATEST_VER.zip /opt/Upsource.zip
+ADD http://download.jetbrains.com/upsource/upsource-$UPSOURCE_BUILD_VER.zip /opt/Upsource.zip
 RUN mkdir -p /opt/Upsource
 RUN chmod a+x /opt/Upsource.zip && unzip /opt/Upsource.zip -d /opt/ && chmod -R a+rwX /opt/Upsource
-RUN rm -rf /opt/Upsource.zip
+RUN rm /opt/Upsource.zip
+
+
+VOLUME ["/opt/Upsource/"]
 
 
 ENTRYPOINT ["/opt/Upsource/bin/upsource.sh", "run"]
 
+
 EXPOSE 8080
+
+
+# Clean up APT
+RUN apt-get clean
