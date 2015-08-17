@@ -13,5 +13,5 @@ $ docker build -t={DOCKER_IMAGE_NAME} .
 ```
 # Run Docker Container with Image
 ```
-$ docker run --name={DOCKER_CONTAINER_NAME} -d -p {HOST_PORT}:8090 {DOCKER_IMAGE_NAME}
+$ docker run --name={DOCKER_CONTAINER_NAME} -d -p {HOST_PORT}:8080 {DOCKER_IMAGE_NAME}
 ```
