@@ -32,6 +32,9 @@ RUN chmod a+x /opt/Upsource.zip && unzip /opt/Upsource.zip -d /opt/ && chmod -R 
 RUN rm /opt/Upsource.zip
 
 
+COPY config/security/limits.conf /etc/security/limits.conf
+
+
 VOLUME ["/opt/Upsource/"]
 
 
