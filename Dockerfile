@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER mintplo <mintplo@jellycoaster.com>
+MAINTAINER mintplo <mintplo21@gmail.com>
 
 # Set Envrionmental Variable
 ENV UPSOURCE_BUILD_VER 2.0.3554
